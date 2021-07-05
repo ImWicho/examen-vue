@@ -4,6 +4,7 @@
   display: flex;
   align-content: space-between;
   justify-content: space-between;
+  position: relative;
 }
 
 .row{
@@ -33,6 +34,7 @@
   border: 1px solid #000000;
   width: 150px;
   height: 150px;
+  cursor: pointer;
 }
 
 .blue{
@@ -53,4 +55,13 @@
 
 .green{
   background-color: rgb(116, 212, 6);
+}
+
+.btn{
+  position: fixed;
+  bottom: 20px;
+  width: 200px;
+  padding: 10px;
+  font-size: 16px;
+  left: calc(50% - 100px);
 }

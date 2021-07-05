@@ -19,11 +19,6 @@ export default {
   padding: 0;
 }
 
-body{
-  min-height: 100vh;
-  min-width: 100%;
-}
-
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
