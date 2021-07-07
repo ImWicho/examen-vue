@@ -33,49 +33,57 @@ export default {
         {
           color : 'green',
           active: false,
-          position: undefined
+          position: undefined,
+          clicked : false
         },
         {
           color : 'red',
           active: false,
-          position: undefined
+          position: undefined,
+          clicked : false
         },
         {
           color : 'purple',
           active: false,
-          position: undefined
+          position: undefined,
+          clicked : false
         },
         {
           color : 'orange',
           active: false,
-          position: undefined
+          position: undefined,
+          clicked : false
         },
         {
           color : 'blue',
           active: false,
-          position: undefined
+          position: undefined,
+          clicked : false
         }
       ],
       positions: [0,1,2,3,4],
-      isStarted: false
+      isLoading: false
     }
   },
   methods: {
     async startGame(){
       this.positions.sort(() => Math.random() - 0.5);
-
+      this.isLoading = true;
       for(let i = 0; this.squares.length > i; i++){
+        await this.sleep(2000);
         this.squares[this.positions[i]].active = true;
         this.squares[this.positions[i]].position = this.positions[i];
         await this.sleep(2000);
         this.squares[this.positions[i]].active = false;
-        await this.sleep(2000);
-      }      
+      }
+      this.isLoading = false;      
     },
     onClickSquare(idx){
+      if(this.isLoading || this.squares[idx].clicked){ return; }
       if(this.squares[idx].position === this.positions[0]){
         this.positions.splice(0, 1);
         this.squares[idx].active = true;
+        this.squares[idx].clicked = true;
       }else{
         alert('Has perdido!');
         this.resetGame();
@@ -85,6 +93,7 @@ export default {
       this.squares.forEach((x) => {
         x.active = false;
         x.position = undefined;
+        x.clicked = false;
       });
       this.isStarted = false;
     },
