@@ -70,49 +70,7 @@ export default {
         await this.sleep(2000);
         this.squares[this.positions[i]].active = false;
         await this.sleep(2000);
-      }
-
-      // setTimeout(() => {
-      //   this.squares[this.positions[0]].active = true;
-      //   this.squares[this.positions[0]].position = this.positions[0];
-      //   setTimeout(() => {
-      //     this.squares[this.positions[0]].active = false;
-      //   },2000);
-      // },2000);
-
-      // setTimeout(() => {
-      //   this.squares[this.positions[1]].active = true;
-      //   this.squares[this.positions[1]].position = this.positions[1];
-      //     setTimeout(() => {
-      //     this.squares[this.positions[1]].active = false;
-      //   },2000);
-      // },4000);
-
-      // setTimeout(() => {
-      //   this.squares[this.positions[2]].active = true;
-      //   this.squares[this.positions[2]].position = this.positions[2];
-      //   setTimeout(() => {
-      //     this.squares[this.positions[2]].active = false;
-      //   },2000);
-      // },6000);
-
-      // setTimeout(() => {
-      //   this.squares[this.positions[3]].active = true;
-      //   this.squares[this.positions[3]].position = this.positions[3];
-      //   setTimeout(() => {
-      //     this.squares[this.positions[3]].active = false;
-      //   },2000);
-      // },8000);
-
-      // setTimeout(() => {
-      //   this.squares[this.positions[4]].active = true;
-      //   this.squares[this.positions[4]].position = this.positions[4];
-      //   setTimeout(() => {
-      //     this.squares[this.positions[4]].active = false;
-      //   },2000);
-      // },10000);
-
-      
+      }      
     },
     onClickSquare(idx){
       if(this.squares[idx].position === this.positions[0]){
