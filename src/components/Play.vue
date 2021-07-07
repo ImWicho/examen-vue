@@ -88,6 +88,11 @@ export default {
         alert('Has perdido!');
         this.resetGame();
       }
+
+      if(this.positions.length === 0){
+        alert('Has ganadoooooooooooooooo');
+        this.resetGame();
+      }
     },
     resetGame(){
       this.squares.forEach((x) => {
