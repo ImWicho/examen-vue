@@ -20,11 +20,13 @@
     </div>
   </div>
 
-  <button class="btn" v-on:click="startGame">PLAY GAME</button>
+  <button class="btn" :disabled="isLoading" v-on:click="startGame">PLAY GAME</button>
 </div>
 </template>
 
 <script>
+const sound = require("@/assets/erro.mp3");
+const init = require("@/assets/noti.mp3");
 export default {
   name: 'Play',
   data() {
@@ -71,6 +73,7 @@ export default {
       this.isLoading = true;
       for(let i = 0; this.squares.length > i; i++){
         await this.sleep(2000);
+        this.play(init);
         this.squares[this.positions[i]].active = true;
         this.squares[this.positions[i]].position = this.positions[i];
         await this.sleep(2000);
@@ -85,6 +88,7 @@ export default {
         this.squares[idx].active = true;
         this.squares[idx].clicked = true;
       }else{
+        this.play(sound);
         alert('Has perdido!');
         this.resetGame();
       }
@@ -104,7 +108,11 @@ export default {
     },
     sleep(ms){
       return new Promise(resolve => setTimeout(resolve,ms))
-    }
+    },
+    play(x) {
+      const audio = new Audio(x);
+      audio.play();
+  }
   },
 }
 </script>
